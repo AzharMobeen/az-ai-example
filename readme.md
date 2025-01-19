@@ -2,6 +2,21 @@
 
 This is a Spring Boot application that provides a RESTful API for interacting with an AI chat service. The application uses the OpenAI API to generate responses based on user prompts.
 
+## Table of Contents
+
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+- [Functionality](#functionality)
+  - [Chat Endpoints](#chat-endpoints)
+    - [GET /chat/ask-ai](#get-chatask-ai)
+    - [GET /chat/ask-ai-options](#get-chatask-ai-options)
+  - [Image Generation Endpoints](#image-generation-endpoints)
+    - [GET /image/gen-ai-image](#get-imagegen-ai-image)
+    - [GET /image/gen-ai-image-url](#get-imagegen-ai-image-url)
+- [Reference Documentation](#reference-documentation)
+
 ## Getting Started
 
 ### Prerequisites
@@ -41,9 +56,9 @@ This is a Spring Boot application that provides a RESTful API for interacting wi
 
 The application reads the OpenAI API key from an environment variable. Ensure that the `AZ_AI_CHATGPT_KEY` environment variable is set before running the application.
 
-### Endpoints
+## Functionality
 
-The application provides the following endpoints:
+### Chat Endpoints
 
 #### GET /chat/ask-ai
 
@@ -83,7 +98,46 @@ curl -G "http://localhost:8080/chat/ask-ai-options" --data-urlencode "prompt=Tel
 "Why don't scientists trust atoms? Because they make up everything!"
 ```
 
-### Reference Documentation
+### Image Generation Endpoints
+
+#### GET /image/gen-ai-image
+
+This endpoint generates an AI image based on the provided prompt and redirects to the image URL.
+
+- **URL**: `/image/gen-ai-image`
+- **Method**: `GET`
+- **Query Parameter**: `prompt` (required) - The prompt to send to the AI.
+- **Response**: Redirects to the generated image URL.
+
+**Example Request**:
+```sh
+curl -X GET "http://localhost:8080/image/gen-ai-image?prompt=A beautiful sunset"
+```
+**Example Response**:
+```
+Run above request in Browser it will redirect to the image URL
+```
+
+#### GET /image/gen-ai-image-url
+
+This endpoint generates an AI image based on the provided prompt and returns the image URL.
+
+- **URL**: `/image/gen-ai-image-url`
+- **Method**: `GET`
+- **Query Parameter**: `prompt` (required) - The prompt to send to the AI.
+- **Response**: A string containing the generated image URL.
+
+**Example Request**:
+```sh
+curl -X GET "http://localhost:8080/image/gen-ai-image-url?prompt=Sr Java Developer in Netherlands, His name is Adnan Ghaffar"
+```
+
+**Example Response**:
+```json
+"https://oaidalleapiprodscus.blob.core.windows.net/private/org-8VWSsI3T6M6UpkICnaRoBhI0/user-cz0WrqIdtbPmTritXw9d8HOU/img-qHIW4CviatPeWk7IYwdFTV4J.png?st=2025-01-19T11%3A19%3A04Z&se=2025-01-19T13%3A19%3A04Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-01-19T00%3A52%3A48Z&ske=2025-01-20T00%3A52%3A48Z&sks=b&skv=2024-08-04&sig=bRhRpG0IlTA0AX3x/%2BVvKwiVzbrT36hQRJAsmzJQK9E%3D"
+```
+
+## Reference Documentation
 
 For further reference, please consider the following sections:
 
