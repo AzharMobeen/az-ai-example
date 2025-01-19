@@ -17,18 +17,22 @@ This is a Spring Boot application that provides a RESTful API for interacting wi
    git clone https://github.com/AzharMobeen/az-ai-example.git
    cd az-ai-example
    ```
+2. Branch out to the branch you want to work on:
+   ```sh
+   git checkout feature/ai-chat
+   ```
 
-2. Set the OpenAI API key as an environment variable:
+3. Set the OpenAI API key as an environment variable:
    ```sh
    export AZ_AI_CHATGPT_KEY=your_api_key_here
    ```
 
-3. Build the application:
+4. Build the application:
    ```sh
    mvn clean install
    ```
 
-4. Run the application:
+5. Run the application:
    ```sh
    mvn spring-boot:run
    ```
