@@ -144,3 +144,4 @@ For further reference, please consider the following sections:
 - [Spring OpenAI](https://docs.spring.io/spring-ai/reference/api/chat/openai-chat.html)
 - [OpenAI Documentation](https://platform.openai.com/docs/overview)
 - [OpenAI Platform API parameters](https://platform.openai.com/docs/api-reference/chat/create)
+- [OpenAI image generation API](https://platform.openai.com/docs/api-reference/images)
