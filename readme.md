@@ -106,12 +106,18 @@ This endpoint generates an AI image based on the provided prompt and redirects t
 
 - **URL**: `/image/gen-ai-image`
 - **Method**: `GET`
-- **Query Parameter**: `prompt` (required) - The prompt to send to the AI.
+- **Query Parameters**:
+    - `prompt` (required)-The prompt to send to the AI.
+    - `quality` (optional, default: "hd") - The quality of the image.
+    - `numberOfImages` (optional, default: 1) - The number of images to generate.
+    - `width` (optional, default: 1024) - The width of the image.
+    - `height` (optional, default: 1024) - The height of the image.
+    - `responseType` (optional, default: "URL") - The response type (URL or B64_JSON).
 - **Response**: Redirects to the generated image URL.
 
 **Example Request**:
 ```sh
-curl -X GET "http://localhost:8080/image/gen-ai-image?prompt=A beautiful sunset"
+curl -X GET "http://localhost:8080/image/gen-ai-image?prompt=A beautiful sunset&quality=hd&numberOfImages=1&width=1024&height=1024&responseType=URL"
 ```
 **Example Response**:
 ```
@@ -124,12 +130,18 @@ This endpoint generates an AI image based on the provided prompt and returns the
 
 - **URL**: `/image/gen-ai-image-url`
 - **Method**: `GET`
-- **Query Parameter**: `prompt` (required) - The prompt to send to the AI.
+- **Query Parameters**:
+    - `prompt` (required)-The prompt to send to the AI.
+    - `quality` (optional, default: "hd") - The quality of the image.
+    - `numberOfImages` (optional, default: 1) - The number of images to generate.
+    - `width` (optional, default: 1024) - The width of the image.
+    - `height` (optional, default: 1024) - The height of the image.
+    - `responseType` (optional, default: "URL") - The response type (URL or B64_JSON).
 - **Response**: A string containing the generated image URL.
 
 **Example Request**:
 ```sh
-curl -X GET "http://localhost:8080/image/gen-ai-image-url?prompt=Sr Java Developer in Netherlands, His name is Adnan Ghaffar"
+curl -X GET "http://localhost:8080/image/gen-ai-image-url?prompt=A beautiful sunset&quality=hd&numberOfImages=1&width=1024&height=1024&responseType=URL"
 ```
 
 **Example Response**:
