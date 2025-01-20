@@ -1,6 +1,6 @@
 # AZ AI Example
 
-This is a Spring Boot application that provides a RESTful API for interacting with an AI chat service. The application uses the OpenAI API to generate responses based on user prompts.
+This is a Spring Boot application that provides a RESTful API for interacting with an AI chat service, generating AI images, and creating AI recipes. The application uses the OpenAI API to generate responses based on user prompts.
 
 ## Table of Contents
 
@@ -15,7 +15,11 @@ This is a Spring Boot application that provides a RESTful API for interacting wi
   - [Image Generation Endpoints](#image-generation-endpoints)
     - [GET /image/gen-ai-image](#get-imagegen-ai-image)
     - [GET /image/gen-ai-image-url](#get-imagegen-ai-image-url)
+  - [Recipe Generation Endpoints](#recipe-generation-endpoints)
+    - [GET /gen-ai-recipe](#get-gen-ai-recipe)
 - [Reference Documentation](#reference-documentation)
+- [Guides](#guides)
+- [License](#license)
 
 ## Getting Started
 
@@ -107,12 +111,12 @@ This endpoint generates an AI image based on the provided prompt and redirects t
 - **URL**: `/image/gen-ai-image`
 - **Method**: `GET`
 - **Query Parameters**:
-    - `prompt` (required)-The prompt to send to the AI.
-    - `quality` (optional, default: "hd") - The quality of the image.
-    - `numberOfImages` (optional, default: 1) - The number of images to generate.
-    - `width` (optional, default: 1024) - The width of the image.
-    - `height` (optional, default: 1024) - The height of the image.
-    - `responseType` (optional, default: "URL") - The response type (URL or B64_JSON).
+  - `prompt` (required) - The prompt to send to the AI.
+  - `quality` (optional, default: "hd") - The quality of the image.
+  - `numberOfImages` (optional, default: 1) - The number of images to generate.
+  - `width` (optional, default: 1024) - The width of the image.
+  - `height` (optional, default: 1024) - The height of the image.
+  - `responseType` (optional, default: "URL") - The response type (URL or B64_JSON).
 - **Response**: Redirects to the generated image URL.
 
 **Example Request**:
@@ -131,12 +135,12 @@ This endpoint generates an AI image based on the provided prompt and returns the
 - **URL**: `/image/gen-ai-image-url`
 - **Method**: `GET`
 - **Query Parameters**:
-    - `prompt` (required)-The prompt to send to the AI.
-    - `quality` (optional, default: "hd") - The quality of the image.
-    - `numberOfImages` (optional, default: 1) - The number of images to generate.
-    - `width` (optional, default: 1024) - The width of the image.
-    - `height` (optional, default: 1024) - The height of the image.
-    - `responseType` (optional, default: "URL") - The response type (URL or B64_JSON).
+  - `prompt` (required) - The prompt to send to the AI.
+  - `quality` (optional, default: "hd") - The quality of the image.
+  - `numberOfImages` (optional, default: 1) - The number of images to generate.
+  - `width` (optional, default: 1024) - The width of the image.
+  - `height` (optional, default: 1024) - The height of the image.
+  - `responseType` (optional, default: "URL") - The response type (URL or B64_JSON).
 - **Response**: A string containing the generated image URL.
 
 **Example Request**:
@@ -147,6 +151,35 @@ curl -X GET "http://localhost:8080/image/gen-ai-image-url?prompt=A beautiful sun
 **Example Response**:
 ```json
 "https://oaidalleapiprodscus.blob.core.windows.net/private/org-8VWSsI3T6M6UpkICnaRoBhI0/user-cz0WrqIdtbPmTritXw9d8HOU/img-qHIW4CviatPeWk7IYwdFTV4J.png?st=2025-01-19T11%3A19%3A04Z&se=2025-01-19T13%3A19%3A04Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-01-19T00%3A52%3A48Z&ske=2025-01-20T00%3A52%3A48Z&sks=b&skv=2024-08-04&sig=bRhRpG0IlTA0AX3x/%2BVvKwiVzbrT36hQRJAsmzJQK9E%3D"
+```
+
+### Recipe Generation Endpoints
+
+#### GET /gen-ai-recipe
+
+This endpoint generates an AI recipe based on the provided ingredients, cuisine, dietary restrictions, and language.
+
+- **URL**: `/gen-ai-recipe`
+- **Method**: `GET`
+- **Query Parameters**:
+  - `ingredients` (required) - The ingredients for the recipe.
+  - `cuisine` (optional, default: "any") - The type of cuisine.
+  - `dietaryRestrictions` (optional, default: "") - Any dietary restrictions.
+  - `lang` (optional, default: "English") - The language for the recipe.
+- **Response**: A string containing the generated recipe.
+
+**Example Request**:
+```sh
+curl -X GET "http://localhost:8080/gen-ai-recipe?ingredients=chicken,tomato&cuisine=Italian&dietaryRestrictions=gluten-free&lang=English"
+```
+
+**Example Response**:
+```json
+{
+  "title": "Gluten-Free Italian Chicken",
+  "ingredients": ["chicken", "tomato", "olive oil", "garlic", "basil"],
+  "instructions": "1. Heat olive oil in a pan. 2. Add garlic and sauté until golden. 3. Add chicken and cook until browned. 4. Add tomatoes and basil, and simmer for 20 minutes. 5. Serve hot."
+}
 ```
 
 ## Reference Documentation
