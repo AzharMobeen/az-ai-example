@@ -190,3 +190,4 @@ For further reference, please consider the following sections:
 - [OpenAI Documentation](https://platform.openai.com/docs/overview)
 - [OpenAI Platform API parameters](https://platform.openai.com/docs/api-reference/chat/create)
 - [OpenAI image generation API](https://platform.openai.com/docs/api-reference/images)
+- [OpenAI Audio Transcription API](https://docs.spring.io/spring-ai/reference/api/audio/transcriptions/openai-transcriptions.html)
